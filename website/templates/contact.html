@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Dental Contact page {% endblock %}
+{% block content %}
+
+<!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+        	{% if message_name %}
+        	<br/><br/><br/><br/><h2>Thanks {{ message_name }}!! </h2>
+          <p>We have received your message and will respond shortly...<br/><br/><br/><br/></p>
+
+          {% else %}
+          <br/><br/><br/><br/><h2>Contact</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+      </div>
+
+      <div>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.2805394012103!2d101.98574851408975!3d2.7329016563341533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdde0c3c7a8ec5%3A0x5284a948a8f45713!2s188%2C%20Jalan%20Palma%20Jaya%205%2C%20Taman%20Pj%20Perdana%2C%2070400%20Seremban%2C%20Negeri%20Sembilan!5e0!3m2!1sen!2smy!4v1625555194456!5m2!1sen!2smy" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="container">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-6">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="info-box">
+                  <i class="bx bx-map"></i>
+                  <h3>Our Address</h3>
+                  <p>A108 Adam Street, New York, NY 535022</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box mt-4">
+                  <i class="bx bx-envelope"></i>
+                  <h3>Email Us</h3>
+                  <p>info@example.com<br>contact@example.com</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box mt-4">
+                  <i class="bx bx-phone-call"></i>
+                  <h3>Call Us  </h3>
+                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+<!-- class="php-email-form" -->
+          <div class="col-lg-6">
+            <form action="{% url 'contact-view' %}" method="post" role="form" > {% csrf_token %}
+              <div class="row">
+                <div class="col form-group"> <br/>
+                  <input type="text" name="contact-name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col form-group mt-3">
+                  <input type="email" class="form-control" name="contact-email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="contact-subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="contact-message" rows="5" placeholder="Message" required></textarea>
+              </div><br/><br/>
+              <!-- <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div> -->
+              <div class="text-center"><button type="submit" class="btn btn-success">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+{% endif %}
+{% endblock %}
